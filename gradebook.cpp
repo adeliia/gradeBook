@@ -64,7 +64,7 @@ int GradeBook::getMaximum(){
     return highGrade;
 }
 
-void GradeBook::getAverage(){
+double GradeBook::getAverage(){
     int total = 0;
 
     for (int grade = 0; grade < students; grade++ ) {
@@ -86,26 +86,25 @@ void GradeBook::outputBarChart(){
 
     for (int count=0; count < frequencySize; count++) {
         if (count==0)
-            cout << " 0-9: ";
+            cout << "  0-9: ";
         else if (count == 10)
-            cout << " 100: " << endl;
+            cout << "  100: ";
         else
             cout << count * 10 << "-" << (count * 10) + 9 << ": ";
-    }
 
-    for (int stars = 0; stars < frequency[count]; stars++) {
-        cout << "*";
+        for (int stars = 0; stars < frequency[count]; stars++) {
+            cout << "*";
+        }
+        cout << endl;
     }
-
-    cout << endl;
 }
 
 void GradeBook::outputGrades(){
     cout << "\nThe grades are:" << endl;
 
     for (int student =0; student < students; student++) {
-        cout << "Student " << stew(2) << student + 1 << ": "
-             << stew(3) << grades[student] << endl;
+        cout << "Student " << setw(2) << student + 1 << ": "
+             << setw(3) << grades[student] << endl;
     }
 }
 

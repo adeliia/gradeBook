@@ -7,17 +7,14 @@ using namespace std;
 
 int main()
 {
-    string nameOfCourse;
-    GradeBook myGradeBook("CS101 Programming in C++ and some more strings");
+    //GradeBook::students reffer to the static const value
+    int gradesArray[GradeBook::students]
+            = { 87, 68, 94, 100, 83, 78, 85, 91, 76, 87};
 
-    cout << "Initial course name is: " << myGradeBook.getCourseName() << endl;
-
-    //cout << "Please enter the name of the course:" << endl;
-    //getline(cin, nameOfCourse);
-    //myGradeBook.setCourseName(nameOfCourse);
+    GradeBook myGradeBook("CS101 Programming in C++", gradesArray);
 
     myGradeBook.displayMessage();
-    myGradeBook.determineClassAverage();
+    myGradeBook.processGrades();
 
     return 0;
 }
